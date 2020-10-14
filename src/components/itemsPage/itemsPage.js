@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { TextField,Button } from '@material-ui/core'
 
-import './itemsPage.scss'
+
 
 
 const data =[];
@@ -54,7 +54,7 @@ function ItemsPage({setItems}){
 
   return(
     <>
-      <form className='itemsPage__form' onSubmit={(e) => {addItemToData(e); setItems(data)}}>
+      <form className='itemsPage__form shadow' onSubmit={(e) => {addItemToData(e); setItems(data)}}>
         <div className='itemsPage__form_inputs'>
           <TextField 
           id="standard-basic" 

@@ -1,5 +1,4 @@
 import React,{useRef,useEffect} from 'react'
-import './resultPage.scss'
 
 function ResultList({items,choises}){
 
@@ -50,7 +49,7 @@ function ResultList({items,choises}){
       arr.map((e,i) => {
         return(
           <div className='resultPage__block_item' key={i}>
-            {e.name} - {e.debt} рублей
+            <span>{e.name}</span><span>{e.debt} рублей</span> 
           </div>
         )
       })
@@ -65,7 +64,7 @@ const resultObj = useRef(resultList(choises,calculation(items,choises)))
 
   return(
     <>
-      <div className='resultPage__block'>
+      <div className='resultPage__block shadow'>
         <List arr={resultObj.current === [] ? ':D' : resultObj.current}/>
       </div>
     </>

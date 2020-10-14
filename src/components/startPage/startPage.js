@@ -1,6 +1,5 @@
 import React,{useEffect,useState} from 'react'
 import { TextField } from '@material-ui/core'
-import './startPage.scss'
 
 
 let people = []
@@ -20,7 +19,7 @@ function StartPage({setPersons}){
   
   return(
     <>
-      <form className='startPage__form'>
+      <form className='startPage__form shadow'>
         <TextField 
         id="standard-basic" 
         label="Введите имена всех участников" 

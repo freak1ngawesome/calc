@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { FormGroup,FormControl,FormLabel,FormControlLabel,FormHelperText,Checkbox,Button } from '@material-ui/core';
-import './calculationPage.scss'
+
 
 function CalculationPage({persons,items,setChoises}){
 
@@ -48,7 +48,7 @@ function CalculationPage({persons,items,setChoises}){
 
   return(
     <>
-      <FormControl component="fieldset" className='calculationPage__form'>
+      <FormControl component="fieldset" className='calculationPage__form shadow'>
         <FormLabel component="legend" className='calculationPage__form_legend'>{persons[index]}</FormLabel>
         <FormGroup >
           <ItemsList

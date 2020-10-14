@@ -1,27 +1,205 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 html{
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  // font-weight: 500;
-  // line-height: 1.75;
-  // border-radius: 4px;
-  // letter-spacing: 0.02857em;
-  // text-transform: uppercase;
-  
+  overflow-x: hidden;
 }
 
 .app__btn{
   position: absolute;
-  bottom: 0;
+  text-align: center;
+  bottom: 5px;
   left: 50%;
   transform: translateX(-50%);
+  width: 180px;
+  button{
+    width: 90px;
+  }
+}
+
+.calculationPage__form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0);
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  .calculationPage__form_btn{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 10px auto;
+
+  }
+  .calculationPage__form_checkbox{
+    margin: 0;
+  }
+  .calculationPage__form_bottomText{
+    margin-left: 25px;
+  }
+  .calculationPage__form_legend{
+    position: fixed;
+    top: -4rem;
+    font-size: 3rem;
+  }
+}
+
+.itemsPage__form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0);
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  max-height: 400px;
+  overflow-y: auto;
+  .itemsPage__form_inputs{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    .itemsPage__form_input{
+      width: 46%;
+      margin-bottom: 20px;
+    }
+  }
+  
+  .itemsPage__form_add{
+    margin-bottom: 20px;
+  }
+
+
+  .itemsPage__form_labels{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .itemsPage__form_item{
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    background-color:#3f51b5;
+    border:0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    .item__name{
+      margin: 10px 0 10px;
+      color: #fff;
+    }
+  }
+}
+
+.resultPage__block{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  align-items: start;
+  .resultPage__block_item{
+    font-size: 2rem;
+    min-width: 400px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.startPage__form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0);
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  .startPage__form_input{
+    width: 50%;
+    margin-bottom: 20px;
+  }
+}
+
+.shadow{
+  box-shadow:0px 0px 6px 5px rgba(0,0,0,0.12);
+  -webkit-box-shadow:0px 0px 6px 5px rgba(0,0,0,0.12);
+  -moz-box-shadow:0px 0px 6px 5px rgba(0,0,0,0.12);
 }
 
 .center{
   position: absolute!important;
-  transition: .3s;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  transition: .5s;
+  transform: translate(-50%,-50%) scale(1.2);
 }
 
+@media (max-width: 1122px){
+  .center{
+    transform: translate(-50%,-50%) scale(1);
+  }
+}
 
+@media (max-width: 976px){
+  .startPage__form{
+    width: 500px;
+  }
+  .itemsPage__form{
+    width: 600px;
+  }
+}
+
+@media (max-width: 754px){
+  .startPage__form{
+    width: 400px;
+    .startPage__form_input{
+      width: 100%;
+    }
+  }
+  .itemsPage__form{
+    width: 500px;
+    .itemsPage__form_inputs{
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 630px){
+  .shadow{
+    box-shadow:none;
+  }
+  .startPage__form{
+    width: 100vw;
+    padding: 0;
+    .startPage__form_input div {
+      margin: 10px;
+    }
+    .startPage__form_input label {
+      margin-left: 10px;
+    }
+  }
+  .itemsPage__form{
+    width: 100vw;
+    padding: 0;
+    .itemName{
+      margin: 0 10px;
+    }
+    .itemPrice{
+      margin: 0 10px;
+    }
+  }
+  .calculationPage__form{
+    width: 100vw;
+    padding: 0;
+    .calculationPage__form_legend{
+      top: -6rem;
+      left: 20px;
+      font-size: 5rem;
+    }
+  }
+}
