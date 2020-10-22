@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/freak1ngawesome/calc/static/css/main.5e85c1e7.chunk.css",
+    "main.js": "/freak1ngawesome/calc/static/js/main.33ce39f3.chunk.js",
+    "main.js.map": "/freak1ngawesome/calc/static/js/main.33ce39f3.chunk.js.map",
+    "runtime-main.js": "/freak1ngawesome/calc/static/js/runtime-main.a6c4c9d6.js",
+    "runtime-main.js.map": "/freak1ngawesome/calc/static/js/runtime-main.a6c4c9d6.js.map",
+    "static/js/2.eb016e2c.chunk.js": "/freak1ngawesome/calc/static/js/2.eb016e2c.chunk.js",
+    "static/js/2.eb016e2c.chunk.js.map": "/freak1ngawesome/calc/static/js/2.eb016e2c.chunk.js.map",
+    "index.html": "/freak1ngawesome/calc/index.html",
+    "precache-manifest.25be34804be3893fca9818854a3b663a.js": "/freak1ngawesome/calc/precache-manifest.25be34804be3893fca9818854a3b663a.js",
+    "service-worker.js": "/freak1ngawesome/calc/service-worker.js",
+    "static/css/main.5e85c1e7.chunk.css.map": "/freak1ngawesome/calc/static/css/main.5e85c1e7.chunk.css.map",
+    "static/js/2.eb016e2c.chunk.js.LICENSE.txt": "/freak1ngawesome/calc/static/js/2.eb016e2c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a6c4c9d6.js",
+    "static/js/2.eb016e2c.chunk.js",
+    "static/css/main.5e85c1e7.chunk.css",
+    "static/js/main.33ce39f3.chunk.js"
+  ]
+}
