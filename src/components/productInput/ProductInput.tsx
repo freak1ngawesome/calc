@@ -13,6 +13,7 @@ const style = {
 	},
 	input: {
 		variant: "filled",
+		errorBorderColor: "red.500"
 	},
 	button: {
 		variant: "outline",
@@ -20,16 +21,35 @@ const style = {
 }
 
 export default observer( function ProductInput() {
+	const validation = new RegExp("^[0-9]*[.,]?[0-9]+$","i")
 	const [productName, setProductName] = React.useState("")
 	const [productCost, setProductCost] = React.useState("")
+	const [valid, setValid] = React.useState(true)
+	const handleValidation = (str: string) => setValid(validation.test(str))
 
 	return (
 		<FormControl {...style.form} >
 			<HStack {...style.stack}>
-				<Input placeholder="Название продукта" {...style.input} value={productName} onChange={(e) => setProductName(e.target.value)}/>
-				<Input placeholder="Стоимость продукта" {...style.input} value={productCost} onChange={(e) => setProductCost(e.target.value)}/>
+				<Input
+					placeholder="Название продукта"
+					{...style.input}
+					value={productName}
+					onChange={(e) => setProductName(e.target.value)}/>
+				<Input
+					isInvalid={!valid}
+					placeholder="Стоимость продукта"
+					{...style.input}
+					value={productCost}
+					onChange={(e) => {
+						const val = e.target.value
+						setProductCost(val)
+						handleValidation(val)}
+					}/>
 			</HStack>
-			<Button {...style.button} onClick={() => Store.addProduct({id: nanoid(), productName, productCost: +productCost})}>Добавить</Button>
+			<Button
+				isDisabled={!valid}
+				{...style.button}
+				onClick={() => Store.addProduct({id: nanoid(), productName, productCost: +productCost})}>Добавить</Button>
 		</FormControl>
 	)
 })
