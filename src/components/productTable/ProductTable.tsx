@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { observer } from 'mobx-react'
 import {
 	Box,
 	Heading,
@@ -8,9 +8,9 @@ import {
   Tbody,
   Tr,
   Th,
-  Td,
 } from "@chakra-ui/react"
-import TableRow from './tabaleRow/TableRow'
+import Store from '../../store/store'
+import TableRows from './tableRows/TableRows'
 
 const style = {
 	heading: {
@@ -21,9 +21,8 @@ const style = {
 	}
 }
 
-const List = [{id: "12312", name: "Apple", cost: 100}, {id: "313", name: "Peach", cost: 200}]
 
-export default function ProductTable(){
+export default observer( function ProductTable(){
 	return (
 		<Box>
 			<Heading {...style.heading}>Текущая корзина</Heading>
@@ -35,9 +34,9 @@ export default function ProductTable(){
 					</Tr>
 				</Thead>
 				<Tbody>
-					{List.map(prod => <TableRow {...prod}/>)}
+					<TableRows productList={Store.productList}/>
 				</Tbody>
 			</Table>
 		</Box>
 	)
-}
+})
