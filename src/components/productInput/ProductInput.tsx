@@ -1,6 +1,6 @@
 import React, { FormEvent } from 'react'
 import { nanoid } from 'nanoid'
-import { observer } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
 import { HStack, Input, Button, FormControl } from "@chakra-ui/react"
 import Store from '../../store/store'
 const style = {
