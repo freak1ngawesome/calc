@@ -13,7 +13,6 @@ const style = {
 	},
 	input: {
 		variant: "filled",
-		errorBorderColor: "red.500"
 	},
 	button: {
 		variant: "outline",
@@ -21,31 +20,29 @@ const style = {
 }
 
 export default observer( function ProductInput() {
-  console.log(1);
-
 	const [productName, setProductName] = React.useState("")
 	const [productCost, setProductCost] = React.useState("")
-  const handleAdd = () => Store.addProduct({id: nanoid(), productName, productCost: +productCost})
+  const handleSubmit = () => Store.addProduct({id: nanoid(), productName, productCost: +productCost})
 	return (
-		<FormControl as="form" {...style.form} onSubmit={handleAdd}>
+		<FormControl as="form" {...style.form} onSubmit={handleSubmit}>
 			<HStack {...style.stack}>
 				<Input
+					{...style.input}
 					placeholder="Название продукта"
           required
-					{...style.input}
 					value={productName}
 					onChange={(e) => setProductName(e.target.value)}/>
 				<Input
+					{...style.input}
 					placeholder="Стоимость продукта"
           required
           pattern="/^[0-9]*[.,]?[0-9]+$/i"
-					{...style.input}
 					value={productCost}
 					onChange={(e) =>setProductCost(e.target.value)}/>
 			</HStack>
 			<Button
-        type="submit"
 				{...style.button}
+        type="submit"
 				>Добавить</Button>
 		</FormControl>
 	)
