@@ -1,6 +1,5 @@
 import React from 'react'
 import { nanoid } from 'nanoid'
-// import { useForm } from "react-hook-form"
 import { observer } from 'mobx-react'
 import { HStack, Input, Button, FormControl } from "@chakra-ui/react"
 import Store from '../../store/store'
@@ -26,7 +25,6 @@ export default observer( function ProductInput() {
 
 	const [productName, setProductName] = React.useState("")
 	const [productCost, setProductCost] = React.useState("")
-  // const { register, handleSubmit } = useForm()
   const handleAdd = () => Store.addProduct({id: nanoid(), productName, productCost: +productCost})
 	return (
 		<FormControl as="form" {...style.form} onSubmit={handleAdd}>
@@ -40,6 +38,7 @@ export default observer( function ProductInput() {
 				<Input
 					placeholder="Стоимость продукта"
           required
+          pattern="/^[0-9]*[.,]?[0-9]+$/i"
 					{...style.input}
 					value={productCost}
 					onChange={(e) =>setProductCost(e.target.value)}/>
