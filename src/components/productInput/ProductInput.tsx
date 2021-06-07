@@ -1,5 +1,6 @@
 import React from 'react'
 import { nanoid } from 'nanoid'
+// import { useForm } from "react-hook-form"
 import { observer } from 'mobx-react'
 import { HStack, Input, Button, FormControl } from "@chakra-ui/react"
 import Store from '../../store/store'
@@ -21,35 +22,32 @@ const style = {
 }
 
 export default observer( function ProductInput() {
-	const validation = new RegExp("^[0-9]*[.,]?[0-9]+$","i")
+  console.log(1);
+
 	const [productName, setProductName] = React.useState("")
 	const [productCost, setProductCost] = React.useState("")
-	const [valid, setValid] = React.useState(true)
-	const handleValidation = (str: string) => setValid(validation.test(str))
-
+  // const { register, handleSubmit } = useForm()
+  const handleAdd = () => Store.addProduct({id: nanoid(), productName, productCost: +productCost})
 	return (
-		<FormControl {...style.form} >
+		<FormControl as="form" {...style.form} onSubmit={handleAdd}>
 			<HStack {...style.stack}>
 				<Input
 					placeholder="Название продукта"
+          required
 					{...style.input}
 					value={productName}
 					onChange={(e) => setProductName(e.target.value)}/>
 				<Input
-					isInvalid={!valid}
 					placeholder="Стоимость продукта"
+          required
 					{...style.input}
 					value={productCost}
-					onChange={(e) => {
-						const val = e.target.value
-						setProductCost(val)
-						handleValidation(val)}
-					}/>
+					onChange={(e) =>setProductCost(e.target.value)}/>
 			</HStack>
 			<Button
-				isDisabled={!valid}
+        type="submit"
 				{...style.button}
-				onClick={() => Store.addProduct({id: nanoid(), productName, productCost: +productCost})}>Добавить</Button>
+				>Добавить</Button>
 		</FormControl>
 	)
 })
