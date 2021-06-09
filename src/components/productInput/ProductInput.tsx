@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid'
 import { observer } from 'mobx-react-lite'
 import { HStack, Input, Button, FormControl } from "@chakra-ui/react"
 import Store from '../../store/store'
+
 const style = {
 	form: {
 		d: "flex",
@@ -25,6 +26,8 @@ export default observer( function ProductInput() {
   const handleSubmit = function(e: FormEvent) {
 		e.preventDefault()
 		Store.addProduct({id: nanoid(), productName, productCost: +productCost})
+		setProductName('')
+		setProductCost('')
 	}
 	return (
 		<FormControl as="form" {...style.form} onSubmit={handleSubmit}>
