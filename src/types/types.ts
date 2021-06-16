@@ -1,8 +1,8 @@
-export type User = {
+export type Guest = {
 	name: string,
 }
 
-export type UserList = Array<User>;
+export type GuestList = Array<Guest>;
 
 export type Product = {
 	id: string,

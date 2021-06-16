@@ -5,7 +5,7 @@ import {
   Td,
 	IconButton,
 } from "@chakra-ui/react"
-import { CloseIcon } from '@chakra-ui/icons'
+import { DeleteIcon } from '@chakra-ui/icons'
 import { ProductList } from '../../../types/types'
 import Store from '../../../store/store'
 
@@ -23,7 +23,7 @@ export default observer( function TableRows({ productList }: Props){
 						<Td>
 							<IconButton
 								aria-label="Delete item from list"
-								icon={<CloseIcon />}
+								icon={<DeleteIcon />}
 								onClick={() => Store.deleteProduct(prod.id)}
 							/>
 							{prod.productName}
