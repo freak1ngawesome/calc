@@ -8,27 +8,27 @@ import {
   Tbody,
   Tr,
   Th,
-	Text,
+	Icon,
 } from "@chakra-ui/react"
 import Store from '../../store/store'
 import TableRows from './tableRows/TableRows'
-
+import EmptyCart from '../emptyCart/EmptyCart'
 const style = {
 	heading: {
 		size: "lg",
 	},
-	table: {
-		variant: "striped",
+	text: {
+		fontSize: "2xl",
 	}
 }
 
 
 export default observer( function ProductTable(){
 	return (
-		<Box>
-			<Heading {...style.heading}>Текущая корзина</Heading>
+		<Box textStyle="normal">
+			<Heading {...style.heading} >Текущая корзина</Heading>
 			{Store.productList.length > 0?
-			<Table {...style.table}>
+			<Table>
 				<Thead>
 					<Tr>
 						<Th>Название</Th>
@@ -38,7 +38,7 @@ export default observer( function ProductTable(){
 				<Tbody>
 					<TableRows productList={Store.productList}/>
 				</Tbody>
-			</Table> : <Text>Пока пусто</Text>}
+			</Table> : <EmptyCart/>}
 		</Box>
 	)
 })

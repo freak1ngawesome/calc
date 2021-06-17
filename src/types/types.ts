@@ -8,6 +8,7 @@ export type Product = {
 	id: string,
 	productName: string,
 	productCost: number,
+	guestIn: GuestList,
 }
 
 export type ProductList = Array<Product>

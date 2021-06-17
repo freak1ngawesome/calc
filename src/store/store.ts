@@ -1,15 +1,16 @@
 import { makeAutoObservable } from "mobx"
-import { ProductList } from '../types/types'
-import { Product } from '../types/types'
+import { ProductList, GuestList, Product } from '../types/types'
 
 interface  IStore {
 	productList: ProductList
+	guestList: GuestList
 	addProduct: (obj: Product) => void
 	deleteProduct: (id : string) => void
 }
 
 class Store implements IStore{
 	productList: ProductList = []
+	guestList: GuestList = []
 
 	constructor() {
 		makeAutoObservable(this)
