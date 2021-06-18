@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react'
+import React, { FormEvent, useState } from 'react'
 import { nanoid } from 'nanoid'
 import { observer } from 'mobx-react-lite'
 import { HStack, Input, Button, FormControl } from "@chakra-ui/react"
@@ -21,8 +21,8 @@ const style = {
 }
 
 export default observer( function ProductInput() {
-	const [productName, setProductName] = React.useState("")
-	const [productCost, setProductCost] = React.useState("")
+	const [productName, setProductName] = useState("")
+	const [productCost, setProductCost] = useState("")
   const handleSubmit = function(e: FormEvent) {
 		e.preventDefault()
 		Store.addProduct({id: nanoid(), productName, productCost: +productCost, guestIn: []})

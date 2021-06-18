@@ -1,5 +1,6 @@
 export type Guest = {
 	name: string,
+	id: string,
 }
 
 export type GuestList = Array<Guest>;
