@@ -1,5 +1,5 @@
 import React from 'react'
-import { VStack,Text, Icon } from "@chakra-ui/react"
+import { VStack,Text,Icon } from "@chakra-ui/react"
 import { GiShoppingCart } from 'react-icons/gi'
 
 const style = {

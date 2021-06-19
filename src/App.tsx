@@ -1,14 +1,27 @@
 import React from 'react'
-import ProductInput from './components/productInput/ProductInput'
-import ProductTable from './components/productTable/ProductTable'
-
+import ProductPage from './pages/ProductPage'
+import GuestPage from './pages/GuestPage'
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react"
 import { Container } from "@chakra-ui/react"
 
 export default function App(){
 	return (
 		<Container maxW="1200">
-			<ProductInput />
-			<ProductTable />
+			<Tabs isFitted variant="enclosed">
+				<TabList>
+					<Tab>Продукты</Tab>
+					<Tab>Участиники</Tab>
+				</TabList>
+
+				<TabPanels>
+					<TabPanel>
+						<ProductPage/>
+					</TabPanel>
+					<TabPanel>
+						<GuestPage/>
+					</TabPanel>
+				</TabPanels>
+			</Tabs>
 		</Container>
 	)
 }

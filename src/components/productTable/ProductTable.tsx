@@ -8,7 +8,6 @@ import {
   Tbody,
   Tr,
   Th,
-	Icon,
 } from "@chakra-ui/react"
 import Store from '../../store/store'
 import TableRows from './tableRows/TableRows'
@@ -27,7 +26,7 @@ export default observer( function ProductTable(){
 	return (
 		<Box textStyle="normal">
 			<Heading {...style.heading} >Текущая корзина</Heading>
-			{Store.productList.length > 0?
+			{Store.productList.length > 0 ?
 			<Table>
 				<Thead>
 					<Tr>

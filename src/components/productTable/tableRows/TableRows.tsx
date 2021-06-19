@@ -1,7 +1,6 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
 import {
-	Text,
   Tr,
   Td,
 	IconButton,
@@ -37,7 +36,7 @@ export default observer( function TableRows({ productList }: Props){
 								onClick={() => Store.deleteProduct(prod.id)}
 							/>
 							<GuestButton guestNumber={prod.guestIn.length} />
-							<Text isTruncated >{prod.productName}</Text>
+							{prod.productName}
 						</Td>
 						<Td isNumeric>{prod.productCost}</Td>
 					</Tr>
