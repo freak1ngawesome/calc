@@ -2,13 +2,13 @@ import React, { FormEvent, useState } from 'react'
 import { nanoid } from 'nanoid'
 import { observer } from 'mobx-react-lite'
 import { HStack, Input, Button, FormControl } from "@chakra-ui/react"
-import Store from '../../store/store'
+import ProductStore from '../../store/productStore'
 
 export default observer(function GuestInput(){
 	const [guestName, setGuestName] = useState('')
 	const handleGuest = function(e: FormEvent) {
 		e.preventDefault()
-		Store.addGuest({id: nanoid(), name: guestName})
+		ProductStore.addGuest({id: nanoid(), name: guestName})
 		setGuestName('')
 	}
 	return (

@@ -8,7 +8,7 @@ import {
 import { DeleteIcon } from '@chakra-ui/icons'
 import GuestButton from '../../guestButton/guestButton'
 import { ProductList } from '../../../types/types'
-import Store from '../../../store/store'
+import ProductStore from '../../../store/productStore'
 
 
 type Props = {
@@ -33,9 +33,9 @@ export default observer( function TableRows({ productList }: Props){
 							<IconButton
 								aria-label="Delete item from list"
 								icon={<DeleteIcon />}
-								onClick={() => Store.deleteProduct(prod.id)}
+								onClick={() => ProductStore.deleteProduct(prod.id)}
 							/>
-							<GuestButton guestNumber={prod.guestIn.length} />
+							<GuestButton guestNumber={prod.guestIn.length}/>
 							{prod.productName}
 						</Td>
 						<Td isNumeric>{prod.productCost}</Td>

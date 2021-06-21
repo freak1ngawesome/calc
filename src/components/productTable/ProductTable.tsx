@@ -9,7 +9,7 @@ import {
   Tr,
   Th,
 } from "@chakra-ui/react"
-import Store from '../../store/store'
+import Store from '../../store/productStore'
 import TableRows from './tableRows/TableRows'
 import EmptyCart from '../emptyCart/EmptyCart'
 const style = {

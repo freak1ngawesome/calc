@@ -3,14 +3,14 @@ import {
 	Button,
 } from "@chakra-ui/react"
 import { observer } from 'mobx-react-lite'
-import Store from '../../store/store'
-
+import ProductStore from '../../store/productStore'
+import ModalStore from '../../store/modalStore'
 type Props = {
 	guestNumber: number
 }
 
-export default observer(function GuestButton({ guestNumber }: Props){
+export default observer( function GuestButton({ guestNumber }: Props){
 	return (
-	  <Button >{guestNumber}/{Store.guestList.length}</Button>
+	  <Button onClick={() => ModalStore.modalOpen()}>{guestNumber}/{ProductStore.guestList.length}</Button>
 	)
 })
