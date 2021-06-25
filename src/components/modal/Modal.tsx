@@ -23,6 +23,11 @@ const style = {
 }
 
 export default observer(function Modal(){
+
+	function handleCloseModal() {
+		ModalStore.modalClose()
+		ModalStore.defaultID()
+	}
 	return ReactDOM.createPortal(ModalStore.modalActive ? (
 		<Center {...style.center} pos="absolute">
 			<Box {...style.box}>
@@ -30,7 +35,7 @@ export default observer(function Modal(){
 				<Heading>Выбрать соедателей</Heading>
 				<CloseButton
 					aria-label="Close modal"
-					onClick={() => ModalStore.modalClose()}
+					onClick={() => handleCloseModal()}
 					size="lg"
 				/>
 			</HStack>

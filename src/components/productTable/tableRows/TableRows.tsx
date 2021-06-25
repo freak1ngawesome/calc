@@ -35,7 +35,7 @@ export default observer( function TableRows({ productList }: Props){
 								icon={<DeleteIcon />}
 								onClick={() => ProductStore.deleteProduct(prod.id)}
 							/>
-							<GuestButton guestNumber={prod.guestIn.length}/>
+							<GuestButton guestNumber={prod.guestIn.length} guestID={prod.id}/>
 							{prod.productName}
 						</Td>
 						<Td isNumeric>{prod.productCost}</Td>

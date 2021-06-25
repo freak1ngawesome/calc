@@ -7,10 +7,16 @@ import ProductStore from '../../store/productStore'
 import ModalStore from '../../store/modalStore'
 type Props = {
 	guestNumber: number
+	guestID: string
 }
 
-export default observer( function GuestButton({ guestNumber }: Props){
+export default observer( function GuestButton({ guestNumber, guestID }: Props){
+
+	function handleOpenModal() {
+		ModalStore.modalOpen()
+		ModalStore.updateID(guestID)
+	}
 	return (
-	  <Button onClick={() => ModalStore.modalOpen()}>{guestNumber}/{ProductStore.guestList.length}</Button>
+	  <Button onClick={() => handleOpenModal()}>{guestNumber}/{ProductStore.guestList.length}</Button>
 	)
 })
