@@ -16,7 +16,7 @@
     "@chakra-ui/theme-tools": "^1.1.7",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
-    "framer-motion": "^4.1.17",
+    "framer-motion": "^4.1.11",
     "mobx": "^6.3.2",
     "mobx-react-lite": "^3.2.0",
     "nanoid": "^3.1.23",

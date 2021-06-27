@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Center, Box, Button, HStack, Heading, CloseButton  } from "@chakra-ui/react"
+import { Center, Box, HStack, Heading, CloseButton } from "@chakra-ui/react"
 import { observer } from 'mobx-react-lite'
+import AddGuestForm from './addGuestForm/AddGuestForm'
 import ModalStore from '../../store/modalStore'
 
 const style = {
@@ -39,6 +40,7 @@ export default observer(function Modal(){
 					size="lg"
 				/>
 			</HStack>
+      <AddGuestForm/>
 			</Box>
 		</Center>
 	) : null, document.getElementById('modal'))

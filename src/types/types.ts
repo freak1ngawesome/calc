@@ -3,13 +3,13 @@ export type Guest = {
 	id: string,
 }
 
-export type GuestList = Array<Guest>;
+export type GuestList = Array<Guest>
 
 export type Product = {
 	id: string,
 	productName: string,
 	productCost: number,
-	guestIn: GuestList,
+	guestIn: Array<string>,
 }
 
 export type ProductList = Array<Product>
