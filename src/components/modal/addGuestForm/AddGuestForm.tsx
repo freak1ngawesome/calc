@@ -11,15 +11,16 @@ export default function AddGuestForm(){
     setGuestIn(guestIn)
   })
   return (
-    <List textStyle="normal" spacing={3}>
+    <List >
       {ProductStore.guestList.map(guest => {
         return (
           <ListItem key={guest.id}>
             <Checkbox
-              isChecked={guestIn.includes(guest.id)}
+              // isChecked={guestIn.includes(guest.id)}
               onChange={() => setGuestIn(prev => [...prev, guest.id])}
               >{guest.name}</Checkbox>
 					</ListItem>
+
         )
       })}
     </List>
