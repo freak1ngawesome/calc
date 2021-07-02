@@ -1,22 +1,16 @@
-import React from 'react'
-import {
-	Button,
-} from "@chakra-ui/react"
+import React, { useState } from 'react'
+import { Button, List, ListItem } from "@chakra-ui/react"
 import { observer } from 'mobx-react-lite'
 import ProductStore from '../../store/productStore'
-import ModalStore from '../../store/modalStore'
+
 type Props = {
 	guestNumber: number
-	guestID: string
+	productID: string
+	onOpen: () => void
 }
 
-export default observer( function GuestButton({ guestNumber, guestID }: Props){
-
-	function handleOpenModal() {
-		ModalStore.modalOpen()
-		ModalStore.updateID(guestID)
-	}
+export default observer( function GuestButton({ guestNumber, productID, onOpen }: Props){
 	return (
-	  <Button onClick={() => handleOpenModal()}>{guestNumber}/{ProductStore.guestList.length}</Button>
+	  <Button onClick={onOpen}>{guestNumber}/{ProductStore.guestList.length}</Button>
 	)
 })

@@ -2,14 +2,15 @@ import { makeAutoObservable } from "mobx"
 
 interface IStore {
 	modalActive: boolean
+	currentGuestIn: Array<string>
 	modalOpen: () => void
 	modalClose: () => void
-	updateID: (id: string) => void
-	defaultID: () => void
+	updateGuestIn: (guestIn: Array<string>) => void
+	defaultGuestIn: () => void
 }
 class ModalStore implements IStore {
 	modalActive: boolean = false
-	activeID: string = ''
+	currentGuestIn: Array<string> = []
 	constructor() {
 		makeAutoObservable(this)
 	}
@@ -22,12 +23,12 @@ class ModalStore implements IStore {
 		this.modalActive = false
 	}
 
-	updateID(id: string): void{
-		this.activeID = id
+	updateGuestIn(guestIn: Array<string>): void{
+		this.currentGuestIn = guestIn
 	}
 
-	defaultID(): void{
-		this.activeID = ''
+	defaultGuestIn(): void{
+		this.currentGuestIn = []
 	}
 }
 
