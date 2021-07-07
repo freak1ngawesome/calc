@@ -25,7 +25,7 @@ export default observer( function ProductInput() {
 	const [productCost, setProductCost] = useState("")
   const handleSubmit = function(e: FormEvent) {
 		e.preventDefault()
-		Store.addProduct({id: nanoid(), productName, productCost: +productCost, guestIn: []})
+		Store.addProduct({id: nanoid(), productName, productCost: +productCost, guestIn: new Set()})
 		setProductName('')
 		setProductCost('')
 	}

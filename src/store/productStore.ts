@@ -8,6 +8,7 @@ interface IStore {
 	addGuest: (obj: Guest) => void
 	deleteProduct: (id : string) => void
 	deleteGuest: (id : string) => void
+	addGuestID: (productID: string, guestID: string, state: boolean) => void
 }
 
 class ProductStore implements IStore{
@@ -32,6 +33,15 @@ class ProductStore implements IStore{
 
 	deleteGuest(id: string): void {
 		this.guestList = this.guestList.filter(g => g.id !== id)
+	}
+
+	addGuestID(productID: string, guestID: string, state: boolean):void {
+		if (state) {
+			this.productList.find(product => product.id === productID).guestIn.delete(guestID)
+		} else {
+			this.productList.find(product => product.id === productID).guestIn.add(guestID)
+		}
+
 	}
 }
 
