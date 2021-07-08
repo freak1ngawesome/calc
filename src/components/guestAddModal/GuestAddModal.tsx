@@ -17,24 +17,23 @@ import ProductStore from '../../store/productStore'
 
 
 export default observer(function GuestAddModal() {
-	const [guestIn, setGuestIn] = useState<Set<string>>(new Set())
-	const guests = ProductStore.productList.find(product => product.id === ModalStore.currentID)?.guestIn
+	const [guestInID, setGuestInID] = useState<Set<string>>(new Set())
+	const guestIn = ProductStore.getActiveProduct?.guestIn
 	useEffect(() => {
-		if (guests) {
-			setGuestIn(guests)
+		if (guestIn) {
+			setGuestInID(guestIn)
 		}
-
-	}, [guests])
+	}, [guestIn])
 
   return (
       <Modal isOpen={ModalStore.modalActive} onClose={() => ModalStore.modalClose()}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>Добавить соедателей</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
 						<List>
-							{ProductStore.guestList.map(guest => <GuestAddCheckbox key={guest.id} id={guest.id} state={guestIn.has(guest.id)} name={guest.name}/>)}
+							{ProductStore.guestList.map(guest => <GuestAddCheckbox key={guest.id} id={guest.id} state={guestInID.has(guest.id)} name={guest.name}/>)}
 						</List>
           </ModalBody>
 

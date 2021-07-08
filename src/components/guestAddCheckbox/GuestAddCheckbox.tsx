@@ -14,7 +14,7 @@ type Props = {
 }
 export default function AddGuestCheckbox({ id, state, name }: Props){
 	const handleChange = (guestID: string) => {
-		ProductStore.addGuestID(ModalStore.currentID, guestID, state)
+		ProductStore.toggleGuestID(guestID, state)
 	}
 	return (
 		<ListItem >

@@ -1,19 +1,10 @@
 import { makeAutoObservable } from "mobx"
 import { ProductList, GuestList, Product, Guest } from '../types/types'
 
-interface IStore {
-	productList: ProductList
-	guestList: GuestList
-	addProduct: (obj: Product) => void
-	addGuest: (obj: Guest) => void
-	deleteProduct: (id : string) => void
-	deleteGuest: (id : string) => void
-	addGuestID: (productID: string, guestID: string, state: boolean) => void
-}
-
-class ProductStore implements IStore{
+class ProductStore {
 	productList: ProductList = []
 	guestList: GuestList = []
+	currentID: string = ''
 
 	constructor() {
 		makeAutoObservable(this)
@@ -35,13 +26,24 @@ class ProductStore implements IStore{
 		this.guestList = this.guestList.filter(g => g.id !== id)
 	}
 
-	addGuestID(productID: string, guestID: string, state: boolean):void {
-		if (state) {
-			this.productList.find(product => product.id === productID).guestIn.delete(guestID)
-		} else {
-			this.productList.find(product => product.id === productID).guestIn.add(guestID)
-		}
+	updateCurrentID(id: string): void{
+		this.currentID = id
+	}
 
+	resetCurrentID(): void{
+		this.currentID = ''
+	}
+
+	toggleGuestID(guestID: string, state: boolean):void {
+		if (state) {
+			this.getActiveProduct.guestIn.delete(guestID)
+		} else {
+			this.getActiveProduct.guestIn.add(guestID)
+		}
+	}
+
+	get getActiveProduct() {
+		return this.productList.find(product => product.id === this.currentID)
 	}
 }
 
