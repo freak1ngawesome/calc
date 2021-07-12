@@ -17,14 +17,6 @@ import ProductStore from '../../store/productStore'
 
 
 export default observer(function GuestAddModal() {
-	const [guestInID, setGuestInID] = useState<Set<string>>(new Set())
-	const guestIn = ProductStore.getActiveProduct?.guestIn
-	useEffect(() => {
-		if (guestIn) {
-			setGuestInID(guestIn)
-		}
-	}, [guestIn])
-
   return (
       <Modal isOpen={ModalStore.modalActive} onClose={() => ModalStore.modalClose()}>
         <ModalOverlay />
@@ -33,7 +25,7 @@ export default observer(function GuestAddModal() {
           <ModalCloseButton />
           <ModalBody>
 						<List>
-							{ProductStore.guestList.map(guest => <GuestAddCheckbox key={guest.id} id={guest.id} state={guestInID.has(guest.id)} name={guest.name}/>)}
+							{ProductStore.guestList.map(guest => <GuestAddCheckbox key={guest.id} id={guest.id} state={ProductStore.getActiveProduct?.guestIn.has(guest.id)} name={guest.name}/>)}
 						</List>
           </ModalBody>
 

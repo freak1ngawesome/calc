@@ -50,10 +50,6 @@ class ProductStore {
   get getGuestListLength() {
     return this.guestList.length
   }
-
-  get getCurrentGuestInLength() {
-    return this.getActiveProduct.guestIn.size
-  }
 }
 
 export default new ProductStore()
