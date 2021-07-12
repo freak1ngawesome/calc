@@ -28,7 +28,6 @@ export default observer( function TableRows({ productList }: Props){
 		<>
 			{productList.map(prod => {
 				return (
-					<>
 						<Tr key={prod.id}>
 							<Td {...style.td}>
 								<IconButton
@@ -37,13 +36,12 @@ export default observer( function TableRows({ productList }: Props){
 									onClick={() => ProductStore.deleteProduct(prod.id)}
 								/>
 								<GuestButton
-									guestNumber={prod.guestIn.length}
+									guestNumber={prod.guestIn.size}
 									productID={prod.id}/>
 								{prod.productName}
 							</Td>
 							<Td isNumeric>{prod.productCost}</Td>
 						</Tr>
-					</>
 				)
 			})}
 		</>

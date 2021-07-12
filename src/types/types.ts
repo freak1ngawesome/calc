@@ -9,7 +9,7 @@ export type Product = {
 	id: string,
 	productName: string,
 	productCost: number,
-	guestIn: Array<string>,
+	guestIn: Set<string>,
 }
 
 export type ProductList = Array<Product>
