@@ -6,11 +6,10 @@ import ProductStore from '../../store/productStore'
 type Props = {
 	guestNumber: number
 	productID: string
-	onOpen: () => void
 }
 
-export default observer( function GuestButton({ guestNumber, productID, onOpen }: Props){
+export default observer( function GuestButton({ guestNumber }: Props){
 	return (
-	  <Button onClick={onOpen}>{guestNumber}/{ProductStore.guestList.length}</Button>
+	  <Button>{guestNumber}/{ProductStore.guestList.length}</Button>
 	)
 })
