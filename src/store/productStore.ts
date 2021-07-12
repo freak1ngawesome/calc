@@ -41,7 +41,15 @@ class ProductStore {
 		} else {
 			this.getActiveProduct.guestIn.add(guestID)
 		}
-	}
+  }
+  
+  toggleGuestIDAll(state: boolean):void {
+		if (state) {
+      this.guestList.forEach(guest => this.getActiveProduct.guestIn.add(guest.id))
+		} else {
+      this.getActiveProduct.guestIn.clear()
+		}
+  }
 
 	get getActiveProduct() {
 		return this.productList.find(product => product.id === this.currentID)

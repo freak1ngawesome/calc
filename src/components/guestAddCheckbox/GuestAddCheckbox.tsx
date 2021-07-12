@@ -3,8 +3,6 @@ import {
 	ListItem,
 	Checkbox,
 } from "@chakra-ui/react"
-
-import ModalStore from '../../store/modalStore'
 import ProductStore from '../../store/productStore'
 
 type Props = {
@@ -14,7 +12,7 @@ type Props = {
 }
 export default function AddGuestCheckbox({ id, state, name }: Props){
 	const handleChange = (guestID: string) => {
-		ProductStore.toggleGuestID(guestID, state)
+    ProductStore.toggleGuestID(guestID, state)
 	}
 	return (
 		<ListItem >

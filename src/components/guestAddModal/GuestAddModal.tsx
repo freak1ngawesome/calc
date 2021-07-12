@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react"
 import { observer } from 'mobx-react-lite'
 import GuestAddCheckbox from '../guestAddCheckbox/GuestAddCheckbox'
+import SelectAllButton from './selectAllButton/SelectAllButton'
 import ModalStore from '../../store/modalStore'
 import ProductStore from '../../store/productStore'
 
@@ -24,6 +25,7 @@ export default observer(function GuestAddModal() {
           <ModalHeader>Добавить соедателей</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
+            <SelectAllButton/>
 						<List>
 							{ProductStore.guestList.map(guest => <GuestAddCheckbox key={guest.id} id={guest.id} state={ProductStore.getActiveProduct?.guestIn.has(guest.id)} name={guest.name}/>)}
 						</List>
