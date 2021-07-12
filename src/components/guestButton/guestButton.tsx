@@ -10,11 +10,11 @@ type Props = {
 }
 
 export default observer( function GuestButton({ guestNumber, productID }: Props){
-	const handleModalOpen = () => {
+	const handleModalOpen = () => { 
 		ModalStore.modalOpen()
 		ProductStore.updateCurrentID(productID)
 	}
 	return (
-	  <Button onClick={handleModalOpen}>{guestNumber}/{ProductStore.guestList.length}</Button>
+	  <Button onClick={handleModalOpen}>{guestNumber}/{ProductStore.getGuestListLength}</Button>
 	)
 })

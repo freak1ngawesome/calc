@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx"
+import ProductPage from "../pages/ProductPage"
 import { ProductList, GuestList, Product, Guest } from '../types/types'
 
 class ProductStore {
