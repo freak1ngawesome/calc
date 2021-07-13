@@ -8,8 +8,10 @@ import {
   Tbody,
   Tr,
   Th,
+	Button,
 } from "@chakra-ui/react"
-import Store from '../../store/productStore'
+import ProductStore from '../../store/productStore'
+import TabsStore from '../../store/tabsStore'
 import TableRows from './tableRows/TableRows'
 import EmptyCart from '../emptyCart/EmptyCart'
 const style = {
@@ -23,21 +25,25 @@ const style = {
 
 
 export default observer( function ProductTable(){
+	const handleButtonClick = () => TabsStore.setTabIndex(2)
 	return (
 		<Box textStyle="normal">
 			<Heading {...style.heading} >Текущая корзина</Heading>
-			{Store.productList.length > 0 ?
-			<Table>
-				<Thead>
-					<Tr>
-						<Th>Название</Th>
-						<Th isNumeric>Цена</Th>
-					</Tr>
-				</Thead>
-				<Tbody>
-					<TableRows productList={Store.productList}/>
-				</Tbody>
-			</Table> : <EmptyCart/>}
+			{ProductStore.productList.length > 0 ?
+			<Box>
+				<Table>
+					<Thead>
+						<Tr>
+							<Th>Название</Th>
+							<Th isNumeric>Цена</Th>
+						</Tr>
+					</Thead>
+					<Tbody>
+						<TableRows productList={ProductStore.productList}/>
+					</Tbody>
+					<Button onClick={handleButtonClick}>Подвести итог</Button>
+				</Table>
+			</Box> : <EmptyCart/>}
 		</Box>
 	)
 })

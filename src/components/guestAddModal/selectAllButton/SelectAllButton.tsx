@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
 import { Button } from '@chakra-ui/react'
+import { observer } from 'mobx-react-lite'
 import ProductStore from '../../../store/productStore'
 
-export default function SelectAllButton() {
-  const [state, setState] = useState(false)
+export default observer( function SelectAllButton() {
   const handleButtonClick = () => {
-    setState(!state)
-    console.log(state)
-    ProductStore.toggleGuestIDAll(state)
+    ProductStore.toggleGuestIDAll()
   }
   return (
     <Button onClick={handleButtonClick}>
-      {state ? 'Убрать всех' : 'Добавить всех'}
+      {ProductStore.getListStatus ? 'Убрать всех' : 'Добавить всех'}
     </Button>
   )
-}
+})

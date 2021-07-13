@@ -1,5 +1,4 @@
 import { makeAutoObservable } from "mobx"
-import ProductPage from "../pages/ProductPage"
 import { ProductList, GuestList, Product, Guest } from '../types/types'
 
 class ProductStore {
@@ -42,9 +41,9 @@ class ProductStore {
 			this.getActiveProduct.guestIn.add(guestID)
 		}
   }
-  
-  toggleGuestIDAll(state: boolean):void {
-		if (state) {
+
+  toggleGuestIDAll():void {
+		if (!this.getListStatus) {
       this.guestList.forEach(guest => this.getActiveProduct.guestIn.add(guest.id))
 		} else {
       this.getActiveProduct.guestIn.clear()
@@ -54,9 +53,13 @@ class ProductStore {
 	get getActiveProduct() {
 		return this.productList.find(product => product.id === this.currentID)
   }
-  
+
   get getGuestListLength() {
     return this.guestList.length
+  }
+
+	get getListStatus() {
+    return this.guestList.length === this.getActiveProduct.guestIn.size
   }
 }
 
