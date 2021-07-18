@@ -8,8 +8,8 @@ export default function EmptyResultList(){
 	}
 	return (
 		<VStack>
-			<Heading>Добавьте людей на вкладке "Участники"</Heading>
-			<Button onClick={handleButtonClick}>Перейти</Button>
+			<Heading mt="1em">Добавьте людей на вкладке "Участники"</Heading>
+			<Button mt="2em" onClick={handleButtonClick} size="xl">Перейти</Button>
 		</VStack>
 	)
 }

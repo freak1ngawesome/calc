@@ -14,24 +14,17 @@ import ProductStore from '../../store/productStore'
 import TabsStore from '../../store/tabsStore'
 import TableRows from './tableRows/TableRows'
 import EmptyCart from '../emptyCart/EmptyCart'
-const style = {
-	heading: {
-		size: "lg",
-	},
-	text: {
-		fontSize: "2xl",
-	}
-}
+
 
 
 export default observer( function ProductTable(){
 	const handleButtonClick = () => TabsStore.setTabIndex(2)
 	return (
-		<Box textStyle="normal">
-			<Heading {...style.heading} >Текущая корзина</Heading>
+		<Box >
+			<Heading my=".5em">Текущая корзина</Heading>
 			{ProductStore.productList.length > 0 ?
 			<Box>
-				<Table>
+				<Table textStyle="normal">
 					<Thead>
 						<Tr>
 							<Th>Название</Th>
@@ -41,8 +34,8 @@ export default observer( function ProductTable(){
 					<Tbody>
 						<TableRows productList={ProductStore.productList}/>
 					</Tbody>
-					<Button onClick={handleButtonClick}>Подвести итог</Button>
 				</Table>
+				<Button mt="1em" onClick={handleButtonClick}>Подвести итог</Button>
 			</Box> : <EmptyCart/>}
 		</Box>
 	)

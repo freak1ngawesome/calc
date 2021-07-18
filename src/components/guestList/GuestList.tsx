@@ -1,22 +1,22 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
-import { List, ListItem, ListIcon, IconButton } from "@chakra-ui/react"
+import { List, ListItem, IconButton, Text } from "@chakra-ui/react"
 import { DeleteIcon } from '@chakra-ui/icons'
-import { AiOutlineUser } from 'react-icons/ai'
 import ProductStore from '../../store/productStore'
 
 export default observer(function GuestList(){
 	return (
-		<List textStyle="normal" spacing={3}>
+		<List textStyle="normal" spacing={5} mt="1em">
 			{ProductStore.guestList.map(guest => {
 				return (
 					<ListItem key={guest.id}>
 						<IconButton
+							variant="solid"
 							aria-label="Delete item from list"
 							icon={<DeleteIcon />}
+							mr="1em"
 							onClick={() => ProductStore.deleteGuest(guest.id)}
 						/>
-						<ListIcon as={AiOutlineUser} />
 						{guest.name}
 					</ListItem>
 				)

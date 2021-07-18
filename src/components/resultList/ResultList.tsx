@@ -7,7 +7,7 @@ import ProductStore from '../../store/productStore'
 
 export default observer( function ResultList(){
   return ProductStore.getGuestListLength > 0 ? (
-    <List>
+    <List textStyle="normal" spacing={5}>
       {ProductStore.guestList.map(guest => <ResultListItem key={guest.id} id={guest.id} name={guest.name}/>)}
     </List>
   ) : <EmptyResultList/>

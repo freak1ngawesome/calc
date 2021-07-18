@@ -32,7 +32,7 @@ export default observer(function GuestAddModal() {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={() => ModalStore.modalClose()}>
+            <Button mr={3} onClick={() => ModalStore.modalClose()}>
               Close
             </Button>
           </ModalFooter>

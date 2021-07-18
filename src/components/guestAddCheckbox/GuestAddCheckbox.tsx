@@ -2,6 +2,7 @@ import React from 'react'
 import {
 	ListItem,
 	Checkbox,
+	Text,
 } from "@chakra-ui/react"
 import ProductStore from '../../store/productStore'
 
@@ -18,6 +19,7 @@ export default function AddGuestCheckbox({ id, state, name }: Props){
 		<ListItem >
 			<Checkbox
 				isChecked={state}
+				textStyles="normal"
 				onChange={() => handleChange(id)}>{name}</Checkbox>
 		</ListItem>
 	)

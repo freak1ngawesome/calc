@@ -15,8 +15,8 @@ export default observer( function App(){
   }
 
 	return (
-		<Container maxW="1200">
-			<Tabs isFitted  index={TabsStore.tabIndex} onChange={handleTabsChange}>
+		<Container maxW="1200" >
+			<Tabs isFitted mt="4em" index={TabsStore.tabIndex} onChange={handleTabsChange}>
 				<TabList>
 					<Tab>Продукты</Tab>
 					<Tab>Участиники</Tab>

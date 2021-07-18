@@ -14,10 +14,10 @@ export default observer(function ResultItemList({ id, name } : Props) {
     ProductStore.productList.forEach(prod => {
       if (prod.guestIn.has(id)) sum += (prod.productCost / prod.guestIn.size)
     })
-    return sum
+    return ~~sum
   }
   return (
-    <ListItem>
+    <ListItem >
       {name} - {calculateByID()}
     </ListItem>
   )

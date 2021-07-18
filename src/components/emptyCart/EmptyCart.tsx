@@ -13,7 +13,7 @@ const style = {
 export default function EmptyCart(){
 	return (
 		<VStack {...style.box}>
-			<Icon as={GiShoppingCart} w="128px" h="128px"/>
+			<Icon as={GiShoppingCart} w="256px" h="256px"/>
 			<Text>Корзина пуста</Text>
 		</VStack>
 	)
