@@ -15,6 +15,6 @@ export default observer( function GuestButton({ guestNumber, productID }: Props)
 		ProductStore.updateCurrentID(productID)
 	}
 	return (
-	  <Button variant="solid" onClick={handleModalOpen}>{guestNumber}/{ProductStore.getGuestListLength}</Button>
+	  <Button onClick={handleModalOpen}>{guestNumber}/{ProductStore.getGuestListLength}</Button>
 	)
 })

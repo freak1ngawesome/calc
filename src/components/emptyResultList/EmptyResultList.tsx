@@ -7,7 +7,7 @@ export default function EmptyResultList(){
 		TabsStore.setTabIndex(1)
 	}
 	return (
-		<VStack>
+		<VStack mt="2em">
 			<Heading mt="1em">Добавьте людей на вкладке "Участники"</Heading>
 			<Button mt="2em" onClick={handleButtonClick} size="xl">Перейти</Button>
 		</VStack>

@@ -1,14 +1,37 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
-import { List } from '@chakra-ui/react'
-import ResultListItem from './resultListItem/ResultListItem'
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+	Heading,
+	Box,
+} from "@chakra-ui/react"
+import ResultRows from './resultRows/ResultRows'
 import EmptyResultList from '../emptyResultList/EmptyResultList'
 import ProductStore from '../../store/productStore'
 
-export default observer( function ResultList(){
-  return ProductStore.getGuestListLength > 0 ? (
-    <List textStyle="normal" spacing={5}>
-      {ProductStore.guestList.map(guest => <ResultListItem key={guest.id} id={guest.id} name={guest.name}/>)}
-    </List>
-  ) : <EmptyResultList/>
+export default observer(function ResultList(){
+	return (
+		<Box>
+			{ProductStore.guestList.length > 0 ?
+				<Box>
+					<Heading my=".5em">И ваш результат...</Heading>
+					<Table textStyle="normal">
+					<Thead>
+						<Tr>
+							<Th>Имя</Th>
+							<Th>Итого</Th>
+						</Tr>
+					</Thead>
+					<Tbody>
+						<ResultRows guestList={ProductStore.guestList}/>
+					</Tbody>
+				</Table>
+				</Box> : <EmptyResultList/>
+			}
+		</Box>
+	)
 })

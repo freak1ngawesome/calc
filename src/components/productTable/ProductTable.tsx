@@ -21,9 +21,9 @@ export default observer( function ProductTable(){
 	const handleButtonClick = () => TabsStore.setTabIndex(2)
 	return (
 		<Box >
-			<Heading my=".5em">Текущая корзина</Heading>
 			{ProductStore.productList.length > 0 ?
 			<Box>
+				<Heading my=".5em">Текущая корзина</Heading>
 				<Table textStyle="normal">
 					<Thead>
 						<Tr>

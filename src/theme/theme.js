@@ -12,7 +12,7 @@ const theme = extendTheme({
 	components: {
 		Button: {
 			defaultProps: {
-				variant: "outline",
+				variant: "solid",
 				size: "lg",
 			},
 			sizes: {

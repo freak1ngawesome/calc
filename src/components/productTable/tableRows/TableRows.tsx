@@ -31,7 +31,6 @@ export default observer( function TableRows({ productList }: Props){
 						<Tr key={prod.id}>
 							<Td {...style.td}>
 								<IconButton
-									variant="solid"
 									aria-label="Delete item from list"
 									icon={<DeleteIcon />}
 									onClick={() => ProductStore.deleteProduct(prod.id)}

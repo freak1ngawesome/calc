@@ -12,12 +12,6 @@ const style = {
 	stack: {
 		flex: "1",
 	},
-	input: {
-		variant: "filled",
-	},
-	button: {
-		variant: "outline",
-	}
 }
 
 export default observer( function ProductInput() {
@@ -33,13 +27,11 @@ export default observer( function ProductInput() {
 		<FormControl as="form" {...style.form} onSubmit={handleSubmit}>
 			<HStack {...style.stack}>
 				<Input
-					{...style.input}
 					placeholder="Название продукта"
           required
 					value={productName}
 					onChange={(e) => setProductName(e.target.value)}/>
 				<Input
-					{...style.input}
 					placeholder="Стоимость продукта"
           required
           pattern="^[0-9]*[.,]?[0-9]+$"
@@ -47,7 +39,6 @@ export default observer( function ProductInput() {
 					onChange={(e) =>setProductCost(e.target.value)}/>
 			</HStack>
 			<Button
-				{...style.button}
         type="submit"
 				>Добавить</Button>
 		</FormControl>

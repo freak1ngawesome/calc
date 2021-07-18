@@ -1,26 +1,36 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
-import { List, ListItem, IconButton, Text } from "@chakra-ui/react"
-import { DeleteIcon } from '@chakra-ui/icons'
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+	Heading,
+	Box,
+} from "@chakra-ui/react"
+import GuestRows from './GuestRows/GuestRows'
+import EmpryGuestList from '../emptyGuestList/EmptyGuestList'
 import ProductStore from '../../store/productStore'
 
 export default observer(function GuestList(){
 	return (
-		<List textStyle="normal" spacing={5} mt="1em">
-			{ProductStore.guestList.map(guest => {
-				return (
-					<ListItem key={guest.id}>
-						<IconButton
-							variant="solid"
-							aria-label="Delete item from list"
-							icon={<DeleteIcon />}
-							mr="1em"
-							onClick={() => ProductStore.deleteGuest(guest.id)}
-						/>
-						{guest.name}
-					</ListItem>
-				)
-			})}
-		</List>
+		<Box>
+			{ProductStore.guestList.length > 0 ?
+				<Box>
+					<Heading my=".5em">Текущий список участников</Heading>
+					<Table textStyle="normal">
+					<Thead>
+						<Tr>
+							<Th>Имя</Th>
+						</Tr>
+					</Thead>
+					<Tbody>
+						<GuestRows guestList={ProductStore.guestList}/>
+					</Tbody>
+				</Table>
+				</Box> : <EmpryGuestList/>
+			}
+		</Box>
 	)
 })
